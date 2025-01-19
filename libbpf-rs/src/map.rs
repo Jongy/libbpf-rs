@@ -106,6 +106,12 @@ impl<'obj> OpenMap<'obj> {
     pub fn max_entries(&self) -> u32 {
         unsafe { libbpf_sys::bpf_map__max_entries(self.ptr.as_ptr()) }
     }
+
+    /// Retrieve map flags
+    pub fn map_flags(&self) -> u32 {
+        unsafe { libbpf_sys::bpf_map__map_flags(self.ptr.as_ptr()) }
+    }
+
 }
 
 impl<'obj> OpenMapMut<'obj> {
