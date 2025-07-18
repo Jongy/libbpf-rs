@@ -216,6 +216,11 @@ impl OpenObject {
         ptr
     }
 
+    /// Get a pointer to the underlying `libbpf_sys::bpf_object`.
+    pub unsafe fn as_ptr(&mut self) -> NonNull<libbpf_sys::bpf_object> {
+        self.ptr
+    }
+
     /// Retrieve the object's name.
     pub fn name(&self) -> Result<&str> {
         unsafe {
